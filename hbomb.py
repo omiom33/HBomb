@@ -94,10 +94,11 @@ def update():
     stuff_to_update = ['hbomb.py','ml.py','smcl.py', '.version']
     for fl in stuff_to_update:
         dat = urllib.request.urlopen(
-            "https://raw.githubusercontent.com/HoneyPots0/HBomb/master/" + fl).read()
-        file = open(fl, 'wb')
-        file.write(dat)
-        file.close()
+            f"https://raw.githubusercontent.com/HoneyPots0/HBomb/master/{fl}"
+        ).read()
+
+        with open(fl, 'wb') as file:
+            file.write(dat)
     print('\n\t    Updated Successfull !!!')
     input('\n\tPress Enter To Run Again HBomb Tool: ')
     subprocess.call([sys.executable, 'hbomb.py'])
